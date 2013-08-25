@@ -31,8 +31,17 @@ bower install threex.vertexanimation
 How To Use It
 =============
 
-there is no real use as it is only a boilerplate for your own extension.
+Here is a typical usage
 
 ```javascript
-var instance	= new THREEx.Sample()
+// instanciate the animation object
+var animation	= new THREEx.VertexAnimation(geometry, function(origin, position, delta, now){
+	// here you put your formula, something clever which fit your needs
+	var angle	= now*2 + position.y	 * 10;
+	position.x	= origin.x + Math.cos(angle)*0.1;	
+})
+// update the animation at every frame
+updateFcts.push(function(delta, now){
+	animation.update(delta, now)
+})
 ```

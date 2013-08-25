@@ -49,12 +49,9 @@ require([ 'bower_components/threex.skymap/package.require.js'
 	//		Do a vertex animation on this mesh				//
 	//////////////////////////////////////////////////////////////////////////////////
 	
-	var animation	= new THREEx.VertexAnimation({
-		geometry	: mesh.geometry,
-		transformFct	: function(origin, position, delta, now){
-			var angle	= now*2 + position.y	 * 10;
-			position.x	= origin.x + Math.cos(angle)*0.1;	
-		}
+	var animation	= new THREEx.VertexAnimation(mesh.geometry, function(origin, position, delta, now){
+		var angle	= now*2 + position.y	 * 10;
+		position.x	= origin.x + Math.cos(angle)*0.1;	
 	})
 	updateFcts.push(function(delta, now){
 		animation.update(delta, now)
