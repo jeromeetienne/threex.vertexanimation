@@ -1,8 +1,8 @@
 threex.vertexanimation
 ======================
 
-threex.vertexanimation is a three.js extension which provide an vertexanimation for other developpers.
-Thus they can copy it and start their own extension.
+threex.vertexanimation is a three.js extension which provide easy vertex animation.
+It is fun to experiment with.
 
 Show Don't Tell
 ===============
