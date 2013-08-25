@@ -23,25 +23,12 @@ require([ 'bower_components/threex.skymap/package.require.js'
 	scene.add( mesh );
 
 	//////////////////////////////////////////////////////////////////////////////////
-	//		add lights							//
-	//////////////////////////////////////////////////////////////////////////////////
-	
-	var light	= new THREE.AmbientLight( 0x020202 )
-	scene.add( light )
-	var light	= new THREE.DirectionalLight('white', 1)
-	light.position.set(0.5, 0.5, 2)
-	scene.add( light )
-	var light	= new THREE.DirectionalLight('white', 0.75)
-	light.position.set(-0.5, -0.5, -2)
-	scene.add( light )
-
-	//////////////////////////////////////////////////////////////////////////////////
 	//		create an mesh							//
 	//////////////////////////////////////////////////////////////////////////////////	
 	var geometry	= new THREE.TorusKnotGeometry(1-0.2, 0.2, 32*8, 32)
 	var material	= new THREE.MeshNormalMaterial()
-	var material	= new THREE.MeshPhongMaterial();
-	material.envMap	= THREEx.createTextureCube('pisa')
+	var material	= new THREE.MeshBasicMaterial();
+	material.envMap	= THREEx.createTextureCube('skybox')
 	var mesh	= new THREE.Mesh( geometry, material )
 	scene.add( mesh )
 
@@ -52,8 +39,10 @@ require([ 'bower_components/threex.skymap/package.require.js'
 	// instanciate the animation object
 	var animation	= new THREEx.VertexAnimation(geometry, function(origin, position, delta, now){
 		// here you put your formula, something clever which fit your needs
-		var angle	= now*2 + position.y	 * 10;
-		position.x	= origin.x + Math.cos(angle)*0.1;	
+		var speed	= 5 + Math.cos(0.2 * now*Math.PI*2)*5;
+		var angle	= speed*now + origin.y*10;
+		position.x	= origin.x + Math.cos(angle*0.4)*0.2;
+		position.y	= origin.y + Math.sin(angle*0.1)*0.4;
 	})
 	// update the animation at every frame
 	updateFcts.push(function(delta, now){
