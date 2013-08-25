@@ -24,13 +24,13 @@
 	//		Do a vertex animation on this mesh				//
 	//////////////////////////////////////////////////////////////////////////////////
 	
-	var animation	= new THREEx.VertexAnimation({
-		geometry	: mesh.geometry,
-		transformFct	: function(origin, position, delta, now){
-			var angle	= now*2 + position.y	 * 10;
-			position.x	= origin.x + Math.cos(angle)*0.1;	
-		}
+	// instanciate the animation object
+	var animation	= new THREEx.VertexAnimation(geometry, function(origin, position, delta, now){
+		// here you put your formula, something clever which fit your needs
+		var angle	= now*2 + position.y	 * 10;
+		position.x	= origin.x + Math.cos(angle)*0.1;	
 	})
+	// update the animation at every frame
 	updateFcts.push(function(delta, now){
 		animation.update(delta, now)
 	})
