@@ -1,17 +1,17 @@
-threex.sample
-===================
+threex.vertexanimation
+======================
 
-threex.sample is a three.js extension which provide an sample for other developpers.
+threex.vertexanimation is a three.js extension which provide an vertexanimation for other developpers.
 Thus they can copy it and start their own extension.
 
 Show Don't Tell
 ===============
-* [examples/basic.html](http://jeromeetienne.github.io/threex.sample/examples/basic.html)
-\[[view source](https://github.com/jeromeetienne/threex.sample/blob/master/examples/basic.html)\] :
-It shows this feature, and that one which is coded like that.
-* [examples/requirejs.html](http://jeromeetienne.github.io/threex.sample/examples/requirejs.html)
-\[[view source](https://github.com/jeromeetienne/threex.sample/blob/master/examples/requirejs.html)\] :
-It does that this way, and it is cool in that case.
+* [examples/basic.html](http://jeromeetienne.github.io/threex.vertexanimation/examples/basic.html)
+\[[view source](https://github.com/jeromeetienne/threex.vertexanimation/blob/master/examples/basic.html)\] :
+It shows a basic usage of the module.
+* [examples/demo.html](http://jeromeetienne.github.io/threex.vertexanimation/examples/demo.html)
+\[[view source](https://github.com/jeromeetienne/threex.vertexanimation/blob/master/examples/demo.html)\] :
+It simply add a more shiny example using reflexion and environment map.
 
 How To Install It
 =================
@@ -19,13 +19,13 @@ How To Install It
 You can install it via script tag
 
 ```html
-<script src='threex.sample.js'></script>
+<script src='threex.vertexanimation.js'></script>
 ```
 
 Or you can install with [bower](http://bower.io/), as you wish.
 
 ```bash
-bower install threex.sample
+bower install threex.vertexanimation
 ```
 
 How To Use It

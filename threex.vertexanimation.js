@@ -31,7 +31,7 @@ THREEx.VertexAnimation 	= function(opts){
 		for(var i = 0; i < geometry.vertices.length; i++) {
 			var originPos	= geometry._origVertices[i];
 			var actualPos	= geometry.vertices[i];
-			opts.transform(originPos, actualPos, now);
+			opts.transformFct(originPos, actualPos, delta, now);
 		}
 		// mark the vertices as dirty
 		geometry.verticesNeedUpdate = true;		
