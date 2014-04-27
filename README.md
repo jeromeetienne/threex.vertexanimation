@@ -16,7 +16,7 @@ It simply add a more shiny example using reflexion and environment map.
 
 A Screenshot
 ============
-[![screenshot](https://raw.githubusercontent.com/jeromeetienne/threex.vertexanimation/master/examples/images/screenshot-threex-vertexanimation-512x512.jpg)](http://jeromeetienne.github.io/threex.vertexanimation/examples/select.html)
+[![screenshot](https://raw.githubusercontent.com/jeromeetienne/threex.vertexanimation/master/examples/images/screenshot-threex-vertexanimation-512x512.jpg)](http://jeromeetienne.github.io/threex.vertexanimation/examples/demo.html)
 
 How To Install It
 =================
