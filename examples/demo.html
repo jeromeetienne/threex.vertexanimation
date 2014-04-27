@@ -19,17 +19,44 @@ require([ 'bower_components/threex.skymap/package.require.js'
 	//		add a skymap							//
 	//////////////////////////////////////////////////////////////////////////////////
 	
-	var mesh	= THREEx.createSkymap('mars')
+	var mesh	= THREEx.createSkymap('skybox')
 	scene.add( mesh );
+	
+	//////////////////////////////////////////////////////////////////////////////////
+	//		set 3 point lighting						//
+	//////////////////////////////////////////////////////////////////////////////////
+
+	;(function(){
+		// add a ambient light
+		var light	= new THREE.AmbientLight( 0x020202*2 )
+		scene.add( light )
+		// add a light in front
+		var light	= new THREE.DirectionalLight('white', 4)
+		light.position.set(0.5, 0.5, 2)
+		scene.add( light )
+		// add a light behind
+		var light	= new THREE.DirectionalLight('white', 0.75*3)
+		light.position.set(-0.5, -0.5, -2)
+		scene.add( light )		
+	})()
+
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		create an mesh							//
 	//////////////////////////////////////////////////////////////////////////////////	
-	var geometry	= new THREE.TorusKnotGeometry(1-0.2, 0.2, 32*8, 32)
-	var material	= new THREE.MeshNormalMaterial()
-	var material	= new THREE.MeshBasicMaterial();
+	var geometry	= new THREE.SphereGeometry(1, 32,32)
+	var material	= new THREE.MeshPhongMaterial();
 	material.envMap	= THREEx.createTextureCube('skybox')
+	material.envMap.mapping	= new THREE.CubeRefractionMapping()
+	material.opacity	= 0.9
+	material.transparent	= true
+	// material.refractionRatio= 0.9
+	// material.reflectivity	= 1.5
+	material.specular.set('hotpink')
+	material.color.set('green')
 	var mesh	= new THREE.Mesh( geometry, material )
+	// mesh.scale.x = 2
+	// mesh.scale.y = 1/2
 	scene.add( mesh )
 
 	//////////////////////////////////////////////////////////////////////////////////
@@ -39,10 +66,12 @@ require([ 'bower_components/threex.skymap/package.require.js'
 	// instanciate the animation object
 	var animation	= new THREEx.VertexAnimation(geometry, function(origin, position, delta, now){
 		// here you put your formula, something clever which fit your needs
-		var speed	= 5 + Math.cos(0.2 * now*Math.PI*2)*5;
-		var angle	= speed*now + origin.y*10;
-		position.x	= origin.x + Math.cos(angle*0.4)*0.2;
+		var speed	= 2 + Math.cos(0.2 * now*Math.PI*2)*2;
+		var angle	= speed*now*Math.PI*2 + origin.y*10;
+		var angle	= 5*now*Math.PI*2 + origin.y*15;
+		position.x	= origin.x + Math.cos(angle*0.4)*0.1;
 		position.y	= origin.y + Math.sin(angle*0.1)*0.4;
+		position.z	= origin.z + Math.sin(angle*0.1)*0.3;
 	})
 	// update the animation at every frame
 	updateFcts.push(function(delta, now){

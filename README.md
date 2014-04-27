@@ -13,6 +13,11 @@ It shows a basic usage of the module.
 \[[view source](https://github.com/jeromeetienne/threex.vertexanimation/blob/master/examples/demo.html)\] :
 It simply add a more shiny example using reflexion and environment map.
 
+
+A Screenshot
+============
+[![screenshot](https://raw.githubusercontent.com/jeromeetienne/threex.vertexanimation/master/examples/images/screenshot-threex-vertexanimation-512x512.jpg)](http://jeromeetienne.github.io/threex.vertexanimation/examples/select.html)
+
 How To Install It
 =================
 
